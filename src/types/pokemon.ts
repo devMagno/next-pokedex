@@ -1,4 +1,4 @@
-interface SimpleAttribute {
+export interface SimpleAttribute {
   name: string
   url: string
 }

@@ -1,0 +1,332 @@
+.card {
+  display: block;
+  overflow: hidden;
+  background-color: var(--white);
+
+  .id,
+  .sprite,
+  .name {
+    border: 1px solid var(--dark-gray);
+  }
+
+  .id {
+    width: 100%;
+    display: block;
+    padding: 4px 8px 0;
+    border-bottom: unset;
+    border-radius: 8px 8px 0 0;
+
+    font-size: 8px;
+    text-align: right;
+    line-height: 12px;
+  }
+
+  .sprite {
+    display: flex;
+    justify-content: center;
+
+    border-top: unset;
+    border-bottom: unset;
+  }
+
+  .name {
+    padding: 4px 8px;
+    border-top: unset;
+    border-radius: 0 0 8px 8px;
+    background-color: var(--dark-gray);
+
+    font-size: 10px;
+    line-height: 16px;
+    text-align: center;
+    color: var(--white);
+    text-transform: capitalize;
+  }
+
+  :global(.normal) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--normal);
+    }
+
+    .id {
+      color: var(--normal);
+    }
+
+    .name {
+      background-color: var(--normal);
+    }
+  }
+
+  :global(.fighting) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--fighting);
+    }
+
+    .id {
+      color: var(--fighting);
+    }
+
+    .name {
+      background-color: var(--fighting);
+    }
+  }
+
+  :global(.flying) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--flying);
+    }
+
+    .id {
+      color: var(--flying);
+    }
+
+    .name {
+      background-color: var(--flying);
+    }
+  }
+
+  :global(.poison) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--poison);
+    }
+
+    .id {
+      color: var(--poison);
+    }
+
+    .name {
+      background-color: var(--poison);
+    }
+  }
+
+  :global(.ground) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--ground);
+    }
+
+    .id {
+      color: var(--ground);
+    }
+
+    .name {
+      background-color: var(--ground);
+    }
+  }
+
+  :global(.rock) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--rock);
+    }
+
+    .id {
+      color: var(--rock);
+    }
+
+    .name {
+      background-color: var(--rock);
+    }
+  }
+
+  :global(.bug) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--bug);
+    }
+
+    .id {
+      color: var(--bug);
+    }
+
+    .name {
+      background-color: var(--bug);
+    }
+  }
+
+  :global(.ghost) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--ghost);
+    }
+
+    .id {
+      color: var(--ghost);
+    }
+
+    .name {
+      background-color: var(--ghost);
+    }
+  }
+
+  :global(.steel) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--steel);
+    }
+
+    .id {
+      color: var(--steel);
+    }
+
+    .name {
+      background-color: var(--steel);
+    }
+  }
+
+  :global(.fire) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--fire);
+    }
+
+    .id {
+      color: var(--fire);
+    }
+
+    .name {
+      background-color: var(--fire);
+    }
+  }
+
+  :global(.water) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--water);
+    }
+
+    .id {
+      color: var(--water);
+    }
+
+    .name {
+      background-color: var(--water);
+    }
+  }
+
+  :global(.grass) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--grass);
+    }
+
+    .id {
+      color: var(--grass);
+    }
+
+    .name {
+      background-color: var(--grass);
+    }
+  }
+
+  :global(.electric) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--electric);
+    }
+
+    .id {
+      color: var(--electric);
+    }
+
+    .name {
+      background-color: var(--electric);
+    }
+  }
+
+  :global(.psychic) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--psychic);
+    }
+
+    .id {
+      color: var(--psychic);
+    }
+
+    .name {
+      background-color: var(--psychic);
+    }
+  }
+
+  :global(.ice) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--ice);
+    }
+
+    .id {
+      color: var(--ice);
+    }
+
+    .name {
+      background-color: var(--ice);
+    }
+  }
+
+  :global(.dragon) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--dragon);
+    }
+
+    .id {
+      color: var(--dragon);
+    }
+
+    .name {
+      background-color: var(--dragon);
+    }
+  }
+
+  :global(.dark) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--dark);
+    }
+
+    .id {
+      color: var(--dark);
+    }
+
+    .name {
+      background-color: var(--dark);
+    }
+  }
+
+  :global(.fairy) {
+    .id,
+    .sprite,
+    .name {
+      border-color: var(--fairy);
+    }
+
+    .id {
+      color: var(--fairy);
+    }
+
+    .name {
+      background-color: var(--fairy);
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 
-import api from '../../services/api'
+import api from '../../services/axios'
 import { GetPokemonListResponse, Pokemon } from '../../types/pokemon'
 
 interface PokemonPageProps {

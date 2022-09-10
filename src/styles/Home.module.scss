@@ -1,0 +1,30 @@
+.title {
+  padding: 0 8px;
+  margin-bottom: 16px;
+
+  display: flex;
+  align-items: center;
+
+  font-size: 24px;
+  font-weight: 700;
+
+  svg {
+    width: 32px;
+    height: 32px;
+    margin-right: 16px;
+  }
+}
+
+.list {
+  margin: -4px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  li {
+    padding: 4px;
+    flex: 1 1 33.3%;
+  }
+}

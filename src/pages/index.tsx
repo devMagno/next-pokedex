@@ -1,25 +1,19 @@
-import { GetStaticProps } from 'next'
+import { useState } from 'react'
+import { TbPokeball } from 'react-icons/tb'
 
+import PokemonCard from '../components/PokemonCard'
 import SEO from '../components/SEO'
-import api from '../services/api'
-import { GetPokemonListResponse } from '../types/pokemon'
+import { usePokemonList } from '../services/hooks/usePokemon'
 
 import styles from '../styles/Home.module.scss'
 
-interface HomeProps {
-  data: GetPokemonListResponse
-}
+export default function Home() {
+  const [page, setPage] = useState(1)
 
-export const getStaticProps: GetStaticProps = async () => {
-  const { data } = await api.get<GetPokemonListResponse>(`pokemon?limit=60`)
+  const { data, isLoading, isFetching, error } = usePokemonList(page, 60)
 
-  return {
-    props: { data },
-  }
-}
-
-export default function Home({ data }: HomeProps) {
-  console.log(data)
+  if (error)
+    return <h1>Oops! Something went wrong... please try again later.</h1>
 
   return (
     <>
@@ -28,8 +22,20 @@ export default function Home({ data }: HomeProps) {
         description="Check out all the Pokémon in one place! Find your favorite and view its abilities, attributes, and more!"
       />
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>Hello World!</h1>
+      <main className="main">
+        <h1 className={styles.title}>
+          <TbPokeball /> Pokédex
+        </h1>
+
+        {data?.results.length && (
+          <ul className={styles.list}>
+            {data.results.map((pokemon) => (
+              <li key={pokemon.name}>
+                <PokemonCard pokemon={pokemon} />
+              </li>
+            ))}
+          </ul>
+        )}
       </main>
     </>
   )
