@@ -8,12 +8,12 @@ import { ParsedUrlQuery } from 'querystring'
 
 import Loader from '../../components/Loader'
 import SEO from '../../components/SEO'
+import renderAbilityName from '../../helpers/renderAbilityName'
+import renderId from '../../helpers/renderId'
+import renderStatName from '../../helpers/renderStatName'
 import api from '../../services/axios'
 import { usePokemonList } from '../../services/hooks/usePokemon'
 import { GetPokemonListResponse, Pokemon } from '../../types/pokemon'
-import renderAbilityName from '../helpers/renderAbilityName'
-import renderId from '../helpers/renderId'
-import renderStatName from '../helpers/renderStatName'
 
 import styles from './Pokemon.module.scss'
 

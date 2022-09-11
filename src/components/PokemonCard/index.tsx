@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import renderId from '../../pages/helpers/renderId'
+import renderId from '../../helpers/renderId'
 import { usePokemon } from '../../services/hooks/usePokemon'
 import { SimpleAttribute } from '../../types/pokemon'
 
