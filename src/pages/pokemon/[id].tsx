@@ -137,18 +137,23 @@ export default function PokemonPage({ pokemon, count }: PokemonPageProps) {
             <section>
               <h2 className={styles.contentTitle}>About</h2>
               <ul className={styles.info}>
-                <li>
-                  <p>
-                    <RiScales2Line /> {pokemon.weight / 10} kg
-                    <span>Weight</span>
-                  </p>
-                </li>
+                {!!pokemon.weight && (
+                  <li>
+                    <p>
+                      <RiScales2Line /> {pokemon.weight / 10} kg
+                      <span>Weight</span>
+                    </p>
+                  </li>
+                )}
 
-                <li>
-                  <p>
-                    <RiRulerLine /> {pokemon.height / 10} m <span>Height</span>
-                  </p>
-                </li>
+                {!!pokemon.height && (
+                  <li>
+                    <p>
+                      <RiRulerLine /> {pokemon.height / 10} m{' '}
+                      <span>Height</span>
+                    </p>
+                  </li>
+                )}
 
                 {!!pokemon.abilities?.length && (
                   <li>
