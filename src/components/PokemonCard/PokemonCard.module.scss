@@ -16,9 +16,9 @@
     border-bottom: unset;
     border-radius: 8px 8px 0 0;
 
-    font-size: 8px;
+    font-size: 12px;
     text-align: right;
-    line-height: 12px;
+    line-height: 16px;
     color: var(--white);
   }
 
@@ -31,12 +31,12 @@
   }
 
   .name {
-    padding: 4px 8px;
+    padding: 8px;
     border-top: unset;
     border-radius: 0 0 8px 8px;
     background-color: var(--white);
 
-    font-size: 10px;
+    font-size: 16px;
     line-height: 16px;
     text-align: center;
     color: var(--white);

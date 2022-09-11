@@ -4,14 +4,9 @@ export interface SimpleAttribute {
 }
 
 interface Ability {
-  is_hidden: boolean
   slot: number
+  is_hidden: boolean
   ability: SimpleAttribute
-}
-
-interface Move {
-  name: string
-  url: string
 }
 
 interface VersionGroupDetail {
@@ -20,8 +15,8 @@ interface VersionGroupDetail {
   move_learn_method: SimpleAttribute
 }
 
-interface Mfe {
-  move: Move
+interface Move {
+  move: SimpleAttribute
   version_group_details: VersionGroupDetail[]
 }
 
@@ -57,7 +52,7 @@ export interface Pokemon {
   weight: number
   abilities: Ability[]
   forms: SimpleAttribute[]
-  moves: Mfe[]
+  moves: Move[]
   sprites: Sprites
   stats: Stat[]
   types: Type[]

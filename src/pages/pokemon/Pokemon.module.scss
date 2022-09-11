@@ -1,0 +1,585 @@
+.main {
+  position: relative;
+  padding: 0 4px 4px;
+
+  display: flex;
+  flex-direction: column;
+
+  &::before {
+    content: '';
+
+    user-select: none;
+    pointer-events: none;
+
+    width: 150px;
+    height: 150px;
+    display: block;
+
+    top: 16px;
+    right: 16px;
+    position: absolute;
+
+    background-repeat: no-repeat;
+    background-size: 150px 150px;
+    background-position: top right;
+    background-image: url('../../../public/pokeball.svg');
+  }
+
+  .header {
+    padding: 24px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title {
+      display: flex;
+      align-items: center;
+
+      svg {
+        width: 24px;
+        height: 32px;
+        fill: var(--white);
+        margin-right: 16px;
+      }
+
+      h1 {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 32px;
+        color: var(--white);
+        text-transform: capitalize;
+      }
+    }
+
+    .id {
+      font-size: 14px;
+      margin-left: 4px;
+      font-weight: 700;
+      color: var(--white);
+    }
+  }
+
+  .content {
+    flex: 1;
+    margin-top: 100px;
+    border-radius: 8px;
+    padding: 0 20px 44px;
+    background-color: var(--white);
+
+    .imageWrapper {
+      margin-top: -100px;
+
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      > span {
+        display: block !important;
+        margin: 0 auto !important;
+      }
+
+      a {
+        width: 32px;
+        height: 32px;
+        margin-top: 32px;
+
+        display: flex;
+
+        &.prev {
+          justify-content: flex-start;
+        }
+
+        &.next {
+          justify-content: flex-end;
+        }
+
+        &.hidden {
+          user-select: none;
+          visibility: hidden;
+          pointer-events: none;
+        }
+
+        svg {
+          width: 16px;
+          height: 24px;
+          fill: var(--white);
+        }
+      }
+    }
+
+    .types {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 20px;
+
+      li {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px;
+        color: var(--white);
+        text-transform: capitalize;
+
+        padding: 2px 8px;
+        border-radius: 10px;
+
+        + li {
+          margin-left: 16px;
+        }
+      }
+    }
+
+    .contentTitle {
+      display: block;
+      margin-bottom: 16px;
+
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 16px;
+      text-align: center;
+    }
+
+    .info {
+      max-width: 350px;
+      margin: 0 auto 20px;
+
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+
+      > li {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        padding: 0 8px;
+        flex-basis: 33.333%;
+
+        + li {
+          border-left: 1px solid var(--light-gray);
+        }
+
+        p {
+          font-size: 12px;
+          line-height: 16px;
+          text-align: center;
+
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+
+          svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+          }
+        }
+
+        span {
+          font-size: 10px;
+          line-height: 12px;
+          color: var(--medium-gray);
+
+          display: block;
+          flex-basis: 100%;
+          margin-top: 10px;
+          text-align: center;
+        }
+      }
+    }
+
+    .stats {
+      max-width: 312px;
+      margin: 16px auto 0;
+
+      li {
+        display: flex;
+        align-items: center;
+
+        > span {
+          font-size: 12px;
+          font-weight: 700;
+          line-height: 16px;
+          text-align: right;
+          text-transform: uppercase;
+
+          display: block;
+          min-width: 45px;
+          margin-right: 12px;
+          padding-right: 12px;
+          border-right: 1px solid var(--light-gray);
+        }
+
+        p {
+          flex: 1;
+          display: flex;
+          align-items: center;
+
+          font-size: 12px;
+          line-height: 16px;
+
+          .bar {
+            width: 100%;
+            height: 4px;
+            overflow: hidden;
+            margin-left: 8px;
+            position: relative;
+            border-radius: 4px;
+
+            .progress {
+              height: 100%;
+              display: block;
+
+              left: 0;
+              position: absolute;
+            }
+
+            &::after {
+              content: '';
+
+              width: 100%;
+              height: 100%;
+              display: block;
+
+              left: 0;
+              opacity: 0.2;
+              position: absolute;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (min-width: 769px) {
+    &::before {
+      right: 64px;
+    }
+
+    .header .id {
+      font-size: 16px;
+    }
+
+    .content {
+      .imageWrapper a {
+        width: 48px;
+
+        svg {
+          width: 40px;
+        }
+      }
+
+      .types {
+        margin-bottom: 24px;
+
+        li {
+          font-size: 12px;
+        }
+      }
+
+      .contentTitle {
+        font-size: 20px;
+        line-height: 20px;
+        margin-bottom: 12px;
+      }
+
+      .info {
+        max-width: 500px;
+        margin-bottom: 24px;
+
+        > li {
+          p {
+            font-size: 16px;
+            line-height: 24px;
+
+            svg {
+              width: 20px;
+              height: 20px;
+            }
+          }
+
+          span {
+            font-size: 12px;
+            line-height: 14px;
+          }
+        }
+      }
+
+      .stats {
+        max-width: 500px;
+
+        li {
+          > span {
+            font-size: 14px;
+            min-width: 50px;
+          }
+
+          p {
+            font-size: 14px;
+
+            .bar {
+              height: 8px;
+              border-radius: 8px;
+              margin-left: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.wrapper:global(.normal),
+.content .types li:global(.normal) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--normal);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--normal);
+  }
+}
+
+.wrapper:global(.fighting),
+.content .types li:global(.fighting) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--fighting);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--fighting);
+  }
+}
+
+.wrapper:global(.flying),
+.content .types li:global(.flying) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--flying);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--flying);
+  }
+}
+
+.wrapper:global(.poison),
+.content .types li:global(.poison) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--poison);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--poison);
+  }
+}
+
+.wrapper:global(.ground),
+.content .types li:global(.ground) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--ground);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--ground);
+  }
+}
+
+.wrapper:global(.rock),
+.content .types li:global(.rock) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--rock);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--rock);
+  }
+}
+
+.wrapper:global(.bug),
+.content .types li:global(.bug) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--bug);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--bug);
+  }
+}
+
+.wrapper:global(.ghost),
+.content .types li:global(.ghost) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--ghost);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--ghost);
+  }
+}
+
+.wrapper:global(.steel),
+.content .types li:global(.steel) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--steel);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--steel);
+  }
+}
+
+.wrapper:global(.fire),
+.content .types li:global(.fire) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--fire);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--fire);
+  }
+}
+
+.wrapper:global(.water),
+.content .types li:global(.water) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--water);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--water);
+  }
+}
+
+.wrapper:global(.grass),
+.content .types li:global(.grass) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--grass);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--grass);
+  }
+}
+
+.wrapper:global(.electric),
+.content .types li:global(.electric) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--electric);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--electric);
+  }
+}
+
+.wrapper:global(.psychic),
+.content .types li:global(.psychic) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--psychic);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--psychic);
+  }
+}
+
+.wrapper:global(.ice),
+.content .types li:global(.ice) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--ice);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--ice);
+  }
+}
+
+.wrapper:global(.dragon),
+.content .types li:global(.dragon) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--dragon);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--dragon);
+  }
+}
+
+.wrapper:global(.dark),
+.content .types li:global(.dark) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--dark);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--dark);
+  }
+}
+
+.wrapper:global(.fairy),
+.content .types li:global(.fairy) {
+  &,
+  .stats li p .bar::after,
+  .stats li p .bar .progress {
+    background-color: var(--fairy);
+  }
+
+  .contentTitle,
+  .stats li span {
+    color: var(--fairy);
+  }
+}

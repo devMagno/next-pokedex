@@ -17,6 +17,10 @@
   span {
     margin-left: 8px;
   }
+
+  @media only screen and (min-width: 769px) {
+    margin-bottom: 32px;
+  }
 }
 
 .list {
@@ -29,6 +33,18 @@
 
   li {
     padding: 4px;
-    flex: 1 1 33.3%;
+    flex: 1 1 50%;
+
+    @media only screen and (min-width: 501px) {
+      flex-basis: 33.333%;
+    }
+  }
+
+  @media only screen and (min-width: 769px) {
+    margin: -6px;
+
+    li {
+      padding: 6px;
+    }
   }
 }

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import renderId from '../../pages/helpers/renderId'
 import { usePokemon } from '../../services/hooks/usePokemon'
 import { SimpleAttribute } from '../../types/pokemon'
 
@@ -10,14 +11,6 @@ import styles from './PokemonCard.module.scss'
 
 interface PokemonCardProps {
   pokemon: SimpleAttribute
-}
-
-function renderId(id: string) {
-  if (id.length === 1) return `00${id}`
-
-  if (id.length === 2) return `0${id}`
-
-  return id
 }
 
 export default function PokemonCard({ pokemon }: PokemonCardProps) {
@@ -35,7 +28,13 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
 
           <div className={styles.sprite}>
             {data?.sprites.front_default && (
-              <Image src={data.sprites.front_default} width={72} height={72} />
+              <Image
+                width={72}
+                height={72}
+                alt={pokemon.name}
+                title={pokemon.name}
+                src={data.sprites.front_default}
+              />
             )}
           </div>
 
