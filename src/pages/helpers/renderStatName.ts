@@ -1,4 +1,6 @@
 export default function renderStatName(name: string) {
+  if (!name) return null
+
   const splittedName = name.split('-')
 
   if (splittedName.length > 1)

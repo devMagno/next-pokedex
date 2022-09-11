@@ -1,4 +1,6 @@
 export default function renderAbilityName(name: string) {
+  if (!name) return null
+
   const sanitized = name.replace(/-/g, ' ')
 
   const arr = sanitized.split(' ')

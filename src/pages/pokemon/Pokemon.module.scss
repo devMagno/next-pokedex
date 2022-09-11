@@ -332,6 +332,12 @@
   }
 }
 
+.fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .wrapper:global(.normal),
 .content .types li:global(.normal) {
   &,

@@ -3,8 +3,10 @@ import { RiRulerLine, RiScales2Line } from 'react-icons/ri'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { ParsedUrlQuery } from 'querystring'
 
+import Loader from '../../components/Loader'
 import SEO from '../../components/SEO'
 import api from '../../services/axios'
 import { usePokemonList } from '../../services/hooks/usePokemon'
@@ -42,12 +44,21 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export default function PokemonPage({ pokemon }: PokemonPageProps) {
+  const { data, isLoading } = usePokemonList(1, 1)
+
+  const { isFallback } = useRouter()
+
+  if (!isFallback)
+    return (
+      <main className={`main ${styles.fallback}`}>
+        <Loader width="40px" height="40px" />
+      </main>
+    )
+
   const greatestStat = pokemon.stats.reduce(
     (acc, curr) => Math.max(acc, curr.base_stat),
     0,
   )
-
-  const { data, isLoading } = usePokemonList(1, 1)
 
   return (
     <>
