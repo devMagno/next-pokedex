@@ -1,5 +1,5 @@
 export default function renderId(id: string) {
-  if (!id) return null
+  if (!id) return ''
 
   if (id.length === 1) return `00${id}`
 

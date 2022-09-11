@@ -1,7 +1,7 @@
 export default function renderAbilityName(name: string) {
-  if (!name) return null
+  if (!name) return ''
 
-  const sanitized = name.replace(/-/g, ' ')
+  const sanitized = name.toString().replace(/-/g, ' ')
 
   const arr = sanitized.split(' ')
 
