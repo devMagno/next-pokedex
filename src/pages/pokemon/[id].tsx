@@ -48,7 +48,7 @@ export default function PokemonPage({ pokemon }: PokemonPageProps) {
 
   const { isFallback } = useRouter()
 
-  if (!isFallback)
+  if (isFallback)
     return (
       <main className={`main ${styles.fallback}`}>
         <Loader width="40px" height="40px" />
