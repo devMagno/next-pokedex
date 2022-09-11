@@ -22,7 +22,7 @@ interface PokemonPageProps {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { data } = await api.get<GetPokemonListResponse>('pokemon?limit=60')
+  const { data } = await api.get<GetPokemonListResponse>('pokemon?limit=120')
   const paths = data.results.map((_, index) => ({
     params: { id: String(index + 1) },
   }))
@@ -156,45 +156,59 @@ export default function PokemonPage({ pokemon }: PokemonPageProps) {
                   </p>
                 </li>
 
-                <li>
-                  <ul>
-                    {pokemon.abilities.map(({ ability }) => (
-                      <li key={ability.url}>
-                        <p>{renderAbilityName(ability.name)}</p>
-                      </li>
-                    ))}
-                  </ul>
-                  <span>Abilities</span>
-                </li>
-              </ul>
-            </section>
+                {!!pokemon.abilities?.length && (
+                  <li>
+                    <ul>
+                      {pokemon.abilities.map(({ ability }) => {
+                        if (!ability.name) return null
 
-            <section>
-              <h2 className={styles.contentTitle}>Base stats</h2>
-
-              <ul className={styles.stats}>
-                {pokemon.stats.map((stat) => (
-                  <li key={stat.stat.name}>
-                    <span>{renderStatName(stat.stat.name)}</span>
-
-                    <p>
-                      {stat.base_stat < 100
-                        ? `0${stat.base_stat}`
-                        : stat.base_stat}
-
-                      <span className={styles.bar}>
-                        <span
-                          className={styles.progress}
-                          style={{
-                            width: `${(stat.base_stat / greatestStat) * 100}%`,
-                          }}
-                        />
-                      </span>
-                    </p>
+                        return (
+                          <li key={ability.url}>
+                            <p>{renderAbilityName(ability.name)}</p>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                    <span>Abilities</span>
                   </li>
-                ))}
+                )}
               </ul>
             </section>
+
+            {!!pokemon.stats?.length && (
+              <section>
+                <h2 className={styles.contentTitle}>Base stats</h2>
+
+                <ul className={styles.stats}>
+                  {pokemon.stats.map((stat) => {
+                    if (!stat.stat.name) return null
+
+                    return (
+                      <li key={stat.stat.name}>
+                        <span>{renderStatName(stat.stat.name)}</span>
+
+                        <p>
+                          {stat.base_stat < 100
+                            ? `0${stat.base_stat}`
+                            : stat.base_stat}
+
+                          <span className={styles.bar}>
+                            <span
+                              className={styles.progress}
+                              style={{
+                                width: `${
+                                  (stat.base_stat / greatestStat) * 100
+                                }%`,
+                              }}
+                            />
+                          </span>
+                        </p>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </section>
+            )}
           </div>
         </main>
       </div>
