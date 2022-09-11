@@ -1,0 +1,15 @@
+.loader {
+  opacity: 0.6;
+  display: block;
+  border-radius: 50%;
+  border: 3px solid var(--dark-gray);
+  border-top-color: transparent;
+
+  animation: spin infinite 2s linear;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -6,7 +6,7 @@
   .id,
   .sprite,
   .name {
-    border: 1px solid var(--dark-gray);
+    border: 1px solid var(--white);
   }
 
   .id {
@@ -19,6 +19,7 @@
     font-size: 8px;
     text-align: right;
     line-height: 12px;
+    color: var(--white);
   }
 
   .sprite {
@@ -33,7 +34,7 @@
     padding: 4px 8px;
     border-top: unset;
     border-radius: 0 0 8px 8px;
-    background-color: var(--dark-gray);
+    background-color: var(--white);
 
     font-size: 10px;
     line-height: 16px;

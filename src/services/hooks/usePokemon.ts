@@ -9,7 +9,7 @@ async function getPokemonList(
   page: number,
   limit: number,
 ): Promise<GetPokemonListResponse> {
-  const offset = page > 1 ? limit * page : 0
+  const offset = (page - 1) * limit
   const { data } = await api.get<GetPokemonListResponse>(
     `pokemon?limit=${limit}&offset=${offset}`,
   )

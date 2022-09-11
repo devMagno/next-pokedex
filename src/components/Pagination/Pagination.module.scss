@@ -1,0 +1,45 @@
+.pagination {
+  margin-top: 16px;
+
+  .list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    li {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      button,
+      span {
+        width: 24px;
+        height: 24px;
+        display: block;
+        text-align: center;
+      }
+
+      button {
+        cursor: pointer;
+        border-radius: 4px;
+        background-color: transparent;
+        border: 1px solid transparent;
+        transition: background-color 0.3s, border-color 0.3s;
+
+        font-size: 12px;
+        color: var(--dark-gray);
+
+        &:hover {
+          border-color: var(--blue);
+        }
+
+        &.current {
+          border-color: var(--blue);
+          background-color: var(--white);
+        }
+      }
+    }
+  }
+}
