@@ -12,13 +12,13 @@ import renderAbilityName from '../../helpers/renderAbilityName'
 import renderId from '../../helpers/renderId'
 import renderStatName from '../../helpers/renderStatName'
 import api from '../../services/axios'
-import { usePokemonList } from '../../services/hooks/usePokemon'
 import { GetPokemonListResponse, Pokemon } from '../../types/pokemon'
 
 import styles from './Pokemon.module.scss'
 
 interface PokemonPageProps {
   pokemon: Pokemon
+  count: number
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -37,15 +37,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { id } = params as ParsedUrlQuery
 
   const { data: pokemon } = await api.get<Pokemon>(`pokemon/${id}`)
+  const { data: listData } = await api.get<GetPokemonListResponse>(`pokemon`)
+
+  const { count } = listData
 
   return {
-    props: { pokemon },
+    props: { pokemon, count },
   }
 }
 
-export default function PokemonPage({ pokemon }: PokemonPageProps) {
-  const { data, isLoading } = usePokemonList(1, 1)
-
+export default function PokemonPage({ pokemon, count }: PokemonPageProps) {
   const { isFallback } = useRouter()
 
   if (isFallback)
@@ -54,11 +55,6 @@ export default function PokemonPage({ pokemon }: PokemonPageProps) {
         <Loader width="40px" height="40px" />
       </main>
     )
-
-  const greatestStat = pokemon.stats.reduce(
-    (acc, curr) => Math.max(acc, curr.base_stat),
-    0,
-  )
 
   return (
     <>
@@ -116,9 +112,7 @@ export default function PokemonPage({ pokemon }: PokemonPageProps) {
                 <Link href={`/pokemon/${pokemon.id + 1}`}>
                   <a
                     className={`${styles.next} ${
-                      isLoading || !data || pokemon.id >= data?.count
-                        ? styles.hidden
-                        : ''
+                      pokemon.id >= count ? styles.hidden : ''
                     }`}
                     title={`Go to Pokémon #${pokemon.id + 1}`}
                   >
@@ -188,17 +182,17 @@ export default function PokemonPage({ pokemon }: PokemonPageProps) {
                         <span>{renderStatName(stat.stat.name)}</span>
 
                         <p>
-                          {stat.base_stat < 100
-                            ? `0${stat.base_stat}`
-                            : stat.base_stat}
+                          <span className={styles.value}>
+                            {stat.base_stat < 100
+                              ? `0${stat.base_stat}`
+                              : stat.base_stat}
+                          </span>
 
                           <span className={styles.bar}>
                             <span
                               className={styles.progress}
                               style={{
-                                width: `${
-                                  (stat.base_stat / greatestStat) * 100
-                                }%`,
+                                width: `${(stat.base_stat / 300) * 100}%`,
                               }}
                             />
                           </span>

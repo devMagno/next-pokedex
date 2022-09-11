@@ -221,6 +221,10 @@
           font-size: 12px;
           line-height: 16px;
 
+          .value {
+            min-width: 27px;
+          }
+
           .bar {
             width: 100%;
             height: 4px;
@@ -347,7 +351,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--normal);
   }
 }
@@ -361,7 +365,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--fighting);
   }
 }
@@ -375,7 +379,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--flying);
   }
 }
@@ -389,7 +393,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--poison);
   }
 }
@@ -403,7 +407,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--ground);
   }
 }
@@ -417,7 +421,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--rock);
   }
 }
@@ -431,7 +435,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--bug);
   }
 }
@@ -445,7 +449,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--ghost);
   }
 }
@@ -459,7 +463,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--steel);
   }
 }
@@ -473,7 +477,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--fire);
   }
 }
@@ -487,7 +491,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--water);
   }
 }
@@ -501,7 +505,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--grass);
   }
 }
@@ -515,7 +519,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--electric);
   }
 }
@@ -529,7 +533,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--psychic);
   }
 }
@@ -543,7 +547,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--ice);
   }
 }
@@ -557,7 +561,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--dragon);
   }
 }
@@ -571,7 +575,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--dark);
   }
 }
@@ -585,7 +589,7 @@
   }
 
   .contentTitle,
-  .stats li span {
+  .stats li > span {
     color: var(--fairy);
   }
 }

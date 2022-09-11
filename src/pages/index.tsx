@@ -6,7 +6,7 @@ import Pagination from '../components/Pagination'
 import PokemonCard from '../components/PokemonCard'
 import CardSkeleton from '../components/PokemonCard/CardSkeleton'
 import SEO from '../components/SEO'
-import { usePokemonList } from '../services/hooks/usePokemon'
+import usePokemonList from '../services/hooks/usePokemonList'
 
 import styles from '../styles/Home.module.scss'
 
