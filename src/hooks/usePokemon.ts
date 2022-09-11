@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query'
 
-import { Pokemon } from '../../types/pokemon'
-import api from '../axios'
+import api from '../services/axios'
+import { Pokemon } from '../types/pokemon'
 
 async function getPokemon(name: string): Promise<Pokemon> {
   const { data } = await api.get<Pokemon>(`pokemon/${name}`)

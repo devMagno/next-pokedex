@@ -1,12 +1,14 @@
 import { render, screen, waitFor } from '@testing-library/react'
 
+import usePokemonList from '../../hooks/usePokemonList'
 import Home from '../../pages'
-import usePokemonList from '../../services/hooks/usePokemonList'
 
-jest.mock('../../services/hooks/usePokemonList')
+jest.mock('../../hooks/usePokemonList')
 
 describe('Home page', () => {
   it('renders correctly', async () => {
+    window.scrollTo = jest.fn()
+
     const usePokemonListMocked = jest.mocked(usePokemonList)
 
     usePokemonListMocked.mockResolvedValueOnce({

@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react'
 
-import usePokemon from '../../services/hooks/usePokemon'
+import usePokemon from '../../hooks/usePokemon'
 
 import PokemonCard from '.'
 
@@ -9,7 +9,7 @@ const pokemon = {
   url: 'https://pokeapi.co/api/v2/pokemon/bulbasaur',
 }
 
-jest.mock('../../services/hooks/usePokemon')
+jest.mock('../../hooks/usePokemon')
 
 describe('PokémonCard component', () => {
   it('renders skeleton correctly', () => {

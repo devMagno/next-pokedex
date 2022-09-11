@@ -36,11 +36,19 @@
       display: flex;
       align-items: center;
 
-      svg {
-        width: 24px;
-        height: 32px;
-        fill: var(--white);
-        margin-right: 16px;
+      .goBack {
+        transition: opacity 0.3s;
+
+        &:hover {
+          opacity: 0.6;
+        }
+
+        svg {
+          width: 24px;
+          height: 32px;
+          fill: var(--white);
+          margin-right: 16px;
+        }
       }
 
       h1 {
@@ -83,8 +91,13 @@
         width: 32px;
         height: 32px;
         margin-top: 32px;
+        transition: opacity 0.3s;
 
         display: flex;
+
+        &:hover {
+          opacity: 0.6;
+        }
 
         &.prev {
           justify-content: flex-start;

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { TbPokeball } from 'react-icons/tb'
 
 import Loader from '../components/Loader'
@@ -6,7 +6,7 @@ import Pagination from '../components/Pagination'
 import PokemonCard from '../components/PokemonCard'
 import CardSkeleton from '../components/PokemonCard/CardSkeleton'
 import SEO from '../components/SEO'
-import usePokemonList from '../services/hooks/usePokemonList'
+import usePokemonList from '../hooks/usePokemonList'
 
 import styles from '../styles/Home.module.scss'
 
@@ -15,8 +15,18 @@ export default function Home() {
 
   const { data, isLoading, isFetching, error } = usePokemonList(page, 60)
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+  }, [page])
+
   if (error)
-    return <h1>Oops! Something went wrong... please try again later.</h1>
+    return (
+      <main className={`main ${styles.mainError}`}>
+        <h1 className={styles.title}>
+          Oops! Something went wrong... please try again later.
+        </h1>
+      </main>
+    )
 
   return (
     <>
@@ -27,7 +37,10 @@ export default function Home() {
 
       <main className="main">
         <h1 className={styles.title}>
-          <TbPokeball /> Pokédex
+          <button type="button" onClick={() => setPage(1)}>
+            <TbPokeball /> Pokédex
+          </button>
+
           {isFetching && <Loader />}
         </h1>
 

@@ -72,7 +72,7 @@ export default function PokemonPage({ pokemon, count }: PokemonPageProps) {
           <header className={styles.header}>
             <div className={styles.title}>
               <Link href="/">
-                <a title="Go back">
+                <a title="Go back" className={styles.goBack}>
                   <BsArrowLeft />
                   <span className="sr-only">Go back</span>
                 </a>

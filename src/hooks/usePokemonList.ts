@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query'
 
-import { GetPokemonListResponse } from '../../types/pokemon'
-import api from '../axios'
+import api from '../services/axios'
+import { GetPokemonListResponse } from '../types/pokemon'
 
 async function getPokemonList(
   page: number,
