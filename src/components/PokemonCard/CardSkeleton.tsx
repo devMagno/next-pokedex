@@ -18,6 +18,7 @@ export default function CardSkeleton() {
 
           <h2 className={styles.name}>
             <Skeleton />
+            <span className="sr-only">Loading</span>
           </h2>
         </span>
       </a>

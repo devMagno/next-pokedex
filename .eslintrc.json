@@ -40,7 +40,11 @@
       }
     ],
     "react/no-array-index-key": "off",
-    "no-plusplus": "off"
+    "no-plusplus": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": ["**/tests/*", "**/*.spec.ts", "**/*.spec.tsx"] }
+    ]
   },
   "overrides": [
     {
@@ -65,6 +69,12 @@
             ]
           }
         ]
+      }
+    },
+    {
+      "files": ["**/*.spec.ts", "**/*.spec.tsx"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
       }
     }
   ]

@@ -9,5 +9,9 @@ export default function Loader({
   width = '16px',
   height = '16px',
 }: LoaderProps) {
-  return <span className={styles.loader} style={{ width, height }} />
+  return (
+    <span className={styles.loader} style={{ width, height }}>
+      <span className="sr-only">Loading...</span>
+    </span>
+  )
 }
