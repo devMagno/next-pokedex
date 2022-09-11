@@ -31,5 +31,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export default function PokemonPage({ pokemon }: PokemonPageProps) {
-  return <h1>{pokemon.name}</h1>
+  return <h1>{pokemon?.name}</h1>
 }
