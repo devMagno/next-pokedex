@@ -27,14 +27,26 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
           <span className={styles.id}>#{renderId(String(data?.id))}</span>
 
           <div className={styles.sprite}>
-            {data?.sprites.front_default && (
+            {data?.sprites.front_default ? (
               <Image
                 width={72}
                 height={72}
                 alt={pokemon.name}
                 title={pokemon.name}
                 src={data.sprites.front_default}
+                quality={100}
               />
+            ) : (
+              <div style={{ marginTop: '10px', marginBottom: '10px' }}>
+                <Image
+                  width={52}
+                  height={52}
+                  alt={`Image for ${pokemon.name} was not found`}
+                  title={`Image for ${pokemon.name} was not found`}
+                  src="/placeholder.png"
+                  quality={100}
+                />
+              </div>
             )}
           </div>
 

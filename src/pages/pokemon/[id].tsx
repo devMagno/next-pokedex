@@ -101,13 +101,27 @@ export default function PokemonPage({ pokemon, count }: PokemonPageProps) {
                   </a>
                 </Link>
 
-                <Image
-                  width={200}
-                  height={200}
-                  alt={pokemon.name}
-                  title={pokemon.name}
-                  src={pokemon.sprites.front_default}
-                />
+                {pokemon.sprites.front_default ? (
+                  <Image
+                    width={200}
+                    height={200}
+                    alt={pokemon.name}
+                    title={pokemon.name}
+                    src={pokemon.sprites.front_default}
+                    quality={100}
+                  />
+                ) : (
+                  <div style={{ marginTop: '25px', marginBottom: '25px' }}>
+                    <Image
+                      width={150}
+                      height={150}
+                      alt={`Image for ${pokemon.name} was not found`}
+                      title={`Image for ${pokemon.name} was not found`}
+                      src="/placeholder.png"
+                      quality={100}
+                    />
+                  </div>
+                )}
 
                 <Link href={`/pokemon/${pokemon.id + 1}`}>
                   <a
