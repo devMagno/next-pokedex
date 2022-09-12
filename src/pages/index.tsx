@@ -21,19 +21,18 @@ export default function Home() {
 
   if (error)
     return (
-      <main className={`main ${styles.mainError}`}>
-        <h1 className={styles.title}>
-          Oops! Something went wrong... please try again later.
-        </h1>
-      </main>
+      <>
+        <SEO title="Pokédex" />
+
+        <main className="main mainError">
+          <h1>Oops! Something went wrong... please try again later.</h1>
+        </main>
+      </>
     )
 
   return (
     <>
-      <SEO
-        title="Pokédex"
-        description="Check out all the Pokémon in one place! Find your favorite and view its abilities, attributes, and more!"
-      />
+      <SEO title="Pokédex" />
 
       <main className="main">
         <h1 className={styles.title}>

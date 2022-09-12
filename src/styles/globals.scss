@@ -1,5 +1,4 @@
 :root {
-  --blue: #375caa;
   --dark-gray: #212121;
   --medium-gray: #666666;
   --light-gray: #e0e0e0;
@@ -65,6 +64,20 @@ a {
   max-width: 612px;
   min-height: 100vh;
   padding: 24px 16px;
+
+  &.mainError {
+    max-width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 28px;
+    }
+  }
 
   @media only screen and (min-width: 769px) {
     padding-top: 32px;

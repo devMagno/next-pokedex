@@ -32,11 +32,11 @@
         color: var(--dark-gray);
 
         &:hover {
-          border-color: var(--blue);
+          border-color: var(--dark-gray);
         }
 
         &.current {
-          border-color: var(--blue);
+          border-color: var(--dark-gray);
           background-color: var(--white);
         }
       }

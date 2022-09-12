@@ -1,0 +1,18 @@
+.custom404 {
+  flex-direction: column;
+
+  a {
+    display: block;
+    font-weight: 600;
+    margin-top: 24px;
+    padding: 10px 16px;
+    border-radius: 4px;
+    transition: opacity 0.3s;
+    background-color: var(--white);
+    border: 2px solid var(--dark-gray);
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

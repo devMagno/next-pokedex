@@ -9,7 +9,7 @@ interface SEOProps {
 
 export default function SEO({
   title,
-  description,
+  description = 'Check out all the Pokémon in one place! Find your favorite and view its abilities, attributes, and more!',
   ogImage = 'og.png',
   url = 'https://next-pokedex-seven.vercel.app/',
 }: SEOProps) {

@@ -13,6 +13,7 @@ import renderId from '../../helpers/renderId'
 import renderStatName from '../../helpers/renderStatName'
 import api from '../../services/axios'
 import { GetPokemonListResponse, Pokemon } from '../../types/pokemon'
+import Custom404 from '../404'
 
 import styles from './Pokemon.module.scss'
 
@@ -36,10 +37,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { id } = params as ParsedUrlQuery
 
-  const { data: pokemon } = await api.get<Pokemon>(`pokemon/${id}`)
-  const { data: listData } = await api.get<GetPokemonListResponse>(`pokemon`)
+  let pokemon
+  let count
 
-  const { count } = listData
+  try {
+    const { data: pokemonData } = await api.get<Pokemon>(`pokemon/${id}`)
+    const { data: listData } = await api.get<GetPokemonListResponse>(`pokemon`)
+
+    pokemon = pokemonData
+    count = listData.count
+  } catch (err) {
+    return { props: { pokemon: null, count: 0 } }
+  }
 
   return {
     props: { pokemon, count },
@@ -49,11 +58,17 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export default function PokemonPage({ pokemon, count }: PokemonPageProps) {
   const { isFallback } = useRouter()
 
+  if (!pokemon) return <Custom404 />
+
   if (isFallback)
     return (
-      <main className={`main ${styles.fallback}`}>
-        <Loader width="40px" height="40px" />
-      </main>
+      <>
+        <SEO title="Pokédex | Loading..." />
+
+        <main className="main mainError">
+          <Loader width="40px" height="40px" />
+        </main>
+      </>
     )
 
   return (
