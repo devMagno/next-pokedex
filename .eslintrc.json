@@ -11,7 +11,8 @@
     "prettier",
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:storybook/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -43,7 +44,16 @@
     "no-plusplus": "off",
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": ["**/tests/*", "**/*.spec.ts", "**/*.spec.tsx"] }
+      {
+        "devDependencies": [
+          "**/tests/*",
+          "**/*.spec.ts",
+          "**/*.spec.tsx",
+          "**/*.stories.*",
+          "**/.storybook/**/*.*"
+        ],
+        "peerDependencies": true
+      }
     ]
   },
   "overrides": [
